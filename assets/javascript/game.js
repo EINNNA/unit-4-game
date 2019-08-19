@@ -4,8 +4,8 @@ $(document).ready(function() {
     var greenGem = "";
     var redGem = "";
     
-    function addition() {
-        $(".blueGem").on("click", function(){
+
+        $(".blueGem").on("click", function() {
             console.log("hi");
           });
         $(".diamondGem").on("click", function() {
@@ -18,9 +18,5 @@ $(document).ready(function() {
             alert("Hi");
         });
 
-    });
 
 });
-
-
-
