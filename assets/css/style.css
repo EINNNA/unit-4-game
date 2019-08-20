@@ -1,7 +1,23 @@
 body {
+    background: #f2dfde;
     width: 640px;
     text-align: center;
     margin: 0 auto;
-    font-family: 'ConnectionRegular'; 
+    font-family: 'Press Start 2P', cursive;
 }
 
+h1, .gems, .winLose, .total, .randomNumber, .instructions {
+    margin: 20px;
+}
+
+.winWin, .loseLose {
+    display: inline-block;
+}
+
+.randomNumber {
+    font-size: 30px;
+}
+
+.winLose {
+    display: inline-block;
+}
