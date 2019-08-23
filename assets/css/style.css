@@ -21,3 +21,7 @@ h1, .gems, .winLose, .total, .randomNumber, .instructions {
 .winLose {
     display: inline-block;
 }
+.hide {
+    display: none;
+    
+}
