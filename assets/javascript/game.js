@@ -1,14 +1,4 @@
-//global variables 
-
-/*this is not re-randomising
-var numGuess = Math.floor(Math.random() * (max - min + 1));
-    console.log(numGuess);*/
-
-var numGuess = getGoal();
-    console.log(numGuess);
-
-var goalNumber = numGuess;
-    console.log(goalNumber);
+var goalNumber = 0;
 
 var addedNumbers = 0;
 var wins = 0;
@@ -20,19 +10,8 @@ var checker = [];
 
 // functions
 $(document).ready(function () {
-    
     clear();
-
-    //var gemRandom = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-
-    var blueGem = generateNumber()
-    //gemRandom[Math.floor(Math.random() * gemRandom.length)];   
-    var diamondGem = generateNumber()
-    //gemRandom[Math.floor(Math.random() * gemRandom.length)];
-    var greenGem = generateNumber()
-    //gemRandom[Math.floor(Math.random() * gemRandom.length)];
-    var redGem = generateNumber()
-    //gemRandom[Math.floor(Math.random() * gemRandom.length)];
+    getGoal();
 
     console.log(blueGem);
     console.log(diamondGem);
@@ -52,6 +31,7 @@ $(document).ready(function () {
             addedNumbers = blueGem + addedNumbers;
             console.log(addedNumbers)
             $(".total").text(addedNumbers);
+            
             winLose();
           });
 
@@ -83,7 +63,7 @@ $(document).ready(function () {
 //winlosecon    
 function winLose() {
     if (addedNumbers == goalNumber) {
-        $(".winNotice").text("YOU WIN!");
+        //$(".winNotice").text("YOU WIN!");
         wins++;
         //$(".randomNumber", ".total", ".instructions").empty();
         $(".winNumber").text(wins);
@@ -91,7 +71,7 @@ function winLose() {
         clear();
     }
     else if (goalNumber < addedNumbers) {
-        $(".instructions").text("YOU LOSE!");
+        //$(".instructions").text("YOU LOSE!");
         losses++;
         $(".loseNumber").text(losses);
         //$(".randomNumber", ".total", ".instructions").empty();
@@ -100,19 +80,26 @@ function winLose() {
     }};     
 
     function clear() {
+        checker = [];
         addedNumbers = 0;
         total = 0;
+        blueGem = generateNumber(); 
+        diamondGem = generateNumber();
+        greenGem = generateNumber();
+        redGem = generateNumber();
         $(".total").text(addedNumbers);
         $(".instructions").text("GET THE SAME AMOUNT OF CRYSTALS.");
-        $(".winNotice").text(" ");
+        //$(".winNotice").text(" ");
     }; 
 
     function getGoal() {
-        var max = 120;
         var min = 19;
+        var max = 120 - min;
+        var goal = Math.floor(Math.random() * max)+ min + 1;
 
-        var goalNumber = Math.floor(Math.random() * max) + min;
-        return goalNumber;
+        goalNumber = goal;
+        
+        $(".randomNumber").text(goal);
     };
 
     function generateNumber() {
@@ -131,16 +118,6 @@ function winLose() {
     };
 
     function randoRando() {
-        $(".blueGem, .diamondGem, .redGem, .greenGem, .randomNumber").empty();
-        goalNumber = getGoal();
-        $(".randomNumber").text(goalNumber);
-        blueGem = generateNumber();
-        //gemRandom[Math.floor(Math.random() * gemRandom.length)];   
-        diamondGem = generateNumber();
-        //gemRandom[Math.floor(Math.random() * gemRandom.length)]; 
-        greenGem = generateNumber();
-        //gemRandom[Math.floor(Math.random() * gemRandom.length)]; 
-        redGem = generateNumber();
-        //gemRandom[Math.floor(Math.random() * gemRandom.length)]; 
-        
+        clear()
+        getGoal()
     };
